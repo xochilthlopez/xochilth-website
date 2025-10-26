@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Xochilth Lopez-Salgado, Ph.D. — Higher Education Researcher</title>
+<meta name="description" content="Xochilth Lopez-Salgado, Ph.D. — research on transfer pathways from community colleges to four-year institutions with emphasis on equity and minoritized students." />
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+
+<style>
+:root{
+  --bg:#FFF8F0;           /* warm cream background */
+  --surface:#FFFFFF;      /* card background */
+  --muted:#6b5b59;        /* muted text */
+  --text:#2e1e19;         /* main text */
+  --accent:#2E7D32;       /* plant green */
+  --accent-2:#A8BFA2;     /* soft sage / muted beige */
+  --radius:14px;
+  --card-shadow:0 6px 20px rgba(46,125,50,0.12);
+  --max-width:980px;
+  --gap:24px;
+  --sans: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --serif: 'Playfair Display', serif;
+}
+
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--sans);
+  color:var(--text);
+  background:linear-gradient(160deg,#f0f7f2 0%, #FFF8F0 80%);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;
+  padding:36px 20px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  box-sizing:border-box;
+}
+
+.page {
+  width:100%;
+  max-width:var(--max-width);
+  display:grid;
+  grid-template-columns: 320px 1fr;
+  gap:var(--gap);
+  align-items:start;
+}
+
+@media (max-width:900px){.page{grid-template-columns:1fr;}.card{position:static;}}
+
+/* Left column */
+.card {
+  background:var(--surface);
+  border-radius:var(--radius);
+  box-shadow:var(--card-shadow);
+  padding:24px;
+  position:sticky;
+  top:28px;
+  height:fit-content;
+}
+
+.avatar {
+  width:96px;
+  height:96px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--serif);
+  font-weight:700;
+  background:linear-gradient(180deg,#E8F5E9,#ffffff);
+  color:var(--accent-2);
+  font-size:34px;
+  margin-bottom:16px;
+  box-shadow:0 6px 14px rgba(46,125,50,0.15);
+}
+
+h1{
+  margin:0 0 8px 0;
+  font-family:var(--serif);
+  font-size:22px;
+  letter-spacing:-0.2px;
+  color:var(--text);
+}
+.title {
+  margin:0;
+  font-size:14px;
+  color:var(--muted);
+  font-weight:600;
+}
+
+.bio {
+  margin-top:14px;
+  color:#3c2f2b;
+  font-size:15px;
+}
+
+.meta {
+  margin-top:18px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.meta a.button{
+  display:inline-block;
+  text-decoration:none;
+  padding:8px 12px;
+  border-radius:10px;
+  border:1px solid rgba(46,125,50,0.15);
+  color:var(--accent);
+  background:#E8F5E9;
+  font-weight:600;
+  font-size:13px;
+  transition:all 0.25s ease;
+}
+.meta a.button:hover{
+  background:var(--accent);
+  color:white;
+}
+
+/* Right column */
+main {
+  min-height:200px;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+}
+
+.actions {
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+
+.link-ghost{
+  color:var(--accent-2);
+  text-decoration:none;
+  font-weight:600;
+  border:1px solid transparent;
+  padding:6px 10px;
+  border-radius:8px;
+  font-size:13px;
+}
+
+/* CTA button */
+.cta {
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:10px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+  font-size:14px;
+  box-shadow:0 10px 30px rgba(46,125,50,0.18);
+  transition:all 0.25s ease;
+}
+.cta:hover {
+  opacity:0.9;
+  transform:translateY(-1px);
+}
+
+/* Section cards */
+section.block {
+  background:var(--surface);
+  border-radius:var(--radius);
+  padding:22px;
+  box-shadow:var(--card-shadow);
+  margin-top:20px;
+  transition:all 0.3s ease;
+  animation:fadeInUp 0.8s ease both;
+}
+section.block:hover {
+  transform:translateY(-2px);
+  box-shadow:0 10px 30px rgba(46,125,50,0.15);
+}
+@keyframes fadeInUp {
+  from {opacity:0; transform:translateY(10px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+section.block h2 {
+  margin:0 0 8px 0;
+  font-family:var(--serif);
+  font-size:18px;
+  color:var(--accent);
+  border-bottom:2px solid rgba(46,125,50,0.15);
+  padding-bottom:4px;
+}
+section.block p {margin:0;color:var(--muted);font-size:14px}
+
+/* Grid items */
+.grid-2 {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-top:12px;
+}
+@media(max-width:700px){.grid-2{grid-template-columns:1fr} }
+
+.item {
+  border-radius:10px;
+  padding:12px;
+  background:#F1F8F7;
+  border:1px solid rgba(46,125,50,0.08);
+}
+.item h3{margin:0 0 6px 0;font-size:14px;font-weight:600;color:var(--text)}
+.item p{margin:0;color:var(--muted);font-size:13px}
+
+/* Footer */
+footer{
+  text-align:center;
+  margin-top:28px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* utilities */
+.muted { color:var(--muted); font-size:13px }
+
+/* Divider between sections */
+section.block:not(:last-of-type)::after {
+  content:"";
+  display:block;
+  height:2px;
+  background:linear-gradient(to right,transparent,rgba(46,125,50,0.2),transparent);
+  margin-top:28px;
+}
+
+/* Focus accessibility */
+a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;border-radius:8px;}
+</style>
+</head>
+
+<body>
+<div class="page" role="document" aria-label="Personal webpage for Xochilth Lopez-Salgado">
+
+<!-- Left column -->
+<aside class="card" aria-labelledby="profile-name">
+<div class="avatar" aria-hidden="true">XL</div>
+
+<h1 id="profile-name">Xochilth Lopez-Salgado, Ph.D.</h1>
+<p class="title">Higher Education Researcher — transfer pathways & equity</p>
+
+<p class="bio">
+Xochilth Lopez-Salgado, Ph.D., is a scholar of higher education whose research centers on transfer pathways from community colleges to four-year institutions, with an emphasis on the experiences and outcomes of minoritized students. Her work examines equity, access, and institutional practices that shape student success across diverse educational contexts.
+</p>
+
+<div class="meta" role="navigation" aria-label="Quick links">
+<a class="button" href="https://example.com/your-resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+<a class="button" href="https://example.com/your-cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+<a class="button" href="https://blog.example.com" target="_blank" rel="noopener noreferrer">Blog</a>
+</div>
+
+<div style="margin-top:14px">
+<p class="muted">Based in: Orange County, CA</p>
+<p class="muted" style="margin-top:6px">Email: <a class="link-ghost" href="mailto:you@example.com">you@example.com</a></p>
+</div>
+</aside>
+
+<!-- Right column -->
+<main>
+<header>
+<div>
+<p class="muted" style="margin:0">Welcome — I’m a researcher focused on improving transfer pathways and equity in higher education.</p>
+<p style="margin-top:10px;font-size:13px;color:var(--muted)">Below are quick access sections for professional materials and writing.</p>
+</div>
+<div class="actions">
+<a class="cta" href="https://example.com/your-resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
+</div>
+</header>
+
+<section id="resume" class="block" aria-labelledby="resume-h">
+<h2 id="resume-h">Resume</h2>
+<p>Professional summary, selected roles, and downloadable resume.</p>
+<div class="grid-2" style="margin-top:12px">
+<div class="item">
+<h3>Academic Focus</h3>
+<p>Research on transfer pathways, student success, community college to university transitions, and equity-driven institutional practices.</p>
+</div>
+<div class="item">
+<h3>Download</h3>
+<p><a href="https://example.com/your-resume.pdf" target="_blank" rel="noopener noreferrer" class="link-ghost">Download resume</a></p>
+</div>
+</div>
+</section>
+
+<section id="cv" class="block" aria-labelledby="cv-h">
+<h2 id="cv-h">Curriculum Vitae (CV)</h2>
+<p>Comprehensive record of publications, presentations, grants, teaching, and service.</p>
+<div class="grid-2" style="margin-top:12px">
+<div class="item">
+<h3>Publications & Grants</h3>
+<p>Peer-reviewed publications, book chapters, and funded research (see CV for full list).</p>
+</div>
+<div class="item">
+<h3>Full CV</h3>
+<p><a href="https://example.com/your-cv.pdf" target="_blank" rel="noopener noreferrer" class="link-ghost">View CV</a></p>
+</div>
+</div>
+</section>
+
+<section id="blog" class="block" aria-labelledby="blog-h">
+<h2 id="blog-h">Writing & Reflections</h2>
+<p>Essays and policy reflections on higher education, equity, and transfer pathways.</p>
+<div style="margin-top:12px">
+<article class="item" style="margin-bottom:10px">
+<h3>Featured Post (placeholder)</h3>
+<p class="muted">"Reimagining Transfer: Equity & Institutional Practice" — short excerpt or summary here.</p>
+</article>
+<p><a href="https://blog.example.com" target="_blank" rel="noopener noreferrer" class="link-ghost">Visit blog</a></p>
+</div>
+</section>
+
+<section id="contact" class="block" aria-labelledby="contact-h">
+<h2 id="contact-h">Contact</h2>
+<p>If you'd like to collaborate or connect, reach out:</p>
+<p style="margin-top:10px"><a class="cta" href="mailto:you@example.com">Email: you@example.com</a></p>
+<p class="muted" style="margin-top:12px">Or replace with your preferred contact form or method.</p>
+</section>
+
+<footer>
+<p>© <span id="year"></span> Xochilth Lopez-Salgado, Ph.D. — <span class="muted">Higher Education Research</span></p>
+</footer>
+</main>
+</div>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+
+
+
