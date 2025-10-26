@@ -52,10 +52,9 @@ body{
   .page { grid-template-columns:1fr; }
   .card {
     position: static;
-    text-align: center;   /* centers all content in the card */
+    text-align: center;   
   }
 }
-
 
 /* Left column */
 .card {
@@ -69,15 +68,14 @@ body{
 }
 
 .avatar {
-  width: 150px;            /* bigger width */
-  height: 150px;           /* bigger height */
-  border-radius: 50%;      /* perfect circle */
-  margin: 0 auto 16px auto; /* centers horizontally and adds bottom spacing */
+  width: 160px;            
+  height: 160px;           
+  border-radius: 50%;      
+  margin: 0 auto 16px auto; 
   box-shadow: 0 6px 14px rgba(46,125,50,0.15);
-  object-fit: cover;       /* keeps the image nicely cropped */
+  object-fit: cover;       
   display: block;
 }
-
 
 h1{
   margin:0 0 8px 0;
@@ -91,12 +89,6 @@ h1{
   font-size:14px;
   color:var(--muted);
   font-weight:600;
-}
-
-.bio {
-  margin-top:14px;
-  color:#3c2f2b;
-  font-size:15px;
 }
 
 .meta {
@@ -132,7 +124,7 @@ header{
   justify-content:space-between;
   align-items:flex-start;
   gap:12px;
-  flex-wrap:wrap; /* allow wrapping on mobile */
+  flex-wrap:wrap;
 }
 
 .actions {
@@ -197,23 +189,6 @@ section.block h2 {
 }
 section.block p {margin:0;color:var(--muted);font-size:14px}
 
-.grid-2 {
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-  margin-top:12px;
-}
-@media(max-width:700px){.grid-2{grid-template-columns:1fr} }
-
-.item {
-  border-radius:10px;
-  padding:12px;
-  background:#F1F8F7;
-  border:1px solid rgba(46,125,50,0.08);
-}
-.item h3{margin:0 0 6px 0;font-size:14px;font-weight:600;color:var(--text)}
-.item p{margin:0;color:var(--muted);font-size:13px}
-
 footer{
   text-align:center;
   margin-top:28px;
@@ -238,52 +213,40 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
 <body>
 <div class="page" role="document" aria-label="Personal webpage for Xochilth Lopez-Salgado">
 
+<!-- Left column -->
 <aside class="card" aria-labelledby="profile-name">
 <img src="photo.jpg" alt="Xochilth Lopez-Salgado" class="avatar">
 <h1 id="profile-name">Xochilth Lopez-Salgado, Ph.D.</h1>
 <p class="title">Higher Education Researcher — transfer pathways & equity</p>
 
-<p class="bio">
-Xochilth Lopez-Salgado, Ph.D., is a scholar of higher education whose research centers on transfer pathways from community colleges to four-year institutions, with an emphasis on the experiences and outcomes of minoritized students. Her work examines equity, access, and institutional practices that shape student success across diverse educational contexts.
-</p>
-
 <div class="meta" role="navigation" aria-label="Quick links">
-  <a class="button" href="Xochilth_Resume.pdf" target="_blank">Resume</a>
   <a class="button" href="lopezsalgado_x_CV.pdf" target="_blank">CV</a>
-  <a class="button" href="#">Blog</a>
+  <a class="button" href="https://www.linkedin.com/in/xochilth-lopez-salgado-phd-16120bb8/" target="_blank">LinkedIn</a>
 </div>
-
 
 <div style="margin-top:14px">
 <p class="muted">Based in: Orange County, CA</p>
-<p class="muted" style="margin-top:6px">Email: <a class="link-ghost" href="mailto:you@example.com">xvlopez@uci.edu</a></p>
+<p class="muted" style="margin-top:6px">Email: <a class="link-ghost" href="mailto:xvlopez@uci.edu">xvlopez@uci.edu</a></p>
 </div>
 </aside>
 
+<!-- Right column -->
 <main>
 <header>
 <div>
 <p class="muted" style="margin:0">Welcome — I’m a researcher focused on improving transfer pathways and equity in higher education.</p>
-<p style="margin-top:10px;font-size:13px;color:var(--muted)">Below are quick access sections for professional materials and writing.</p>
 </div>
 <div class="actions">
-<a class="cta" href="#">View Resume</a>
+<a class="cta" href="lopezsalgado_x_CV.pdf" target="_blank">View CV</a>
 </div>
 </header>
 
-<section id="resume" class="block" aria-labelledby="resume-h">
-<h2 id="resume-h">Resume</h2>
-<p>Professional summary, selected roles, and downloadable resume.</p>
-<div class="grid-2" style="margin-top:12px">
-<div class="item">
-<h3>Academic Focus</h3>
-<p>Research on transfer pathways, student success, community college to university transitions, and equity-driven institutional practices.</p>
-</div>
-<div class="item">
-<h3>Download</h3>
-<p><a href="#" class="link-ghost">Download resume</a></p>
-</div>
-</div>
+<section id="about" class="block" aria-labelledby="about-h">
+<h2 id="about-h">About Me</h2>
+<p>I’m a postdoctoral scholar at UC Irvine with a Ph.D. in Higher Education and Organizational Change from UCLA. My work centers on advancing equity in higher education, with a focus on the experiences and success of low-income, first-generation, and racially minoritized students.</p>
+<p>Over the years, I’ve led and collaborated on multi-institutional research projects, partnered with campus stakeholders, and helped translate data into actionable strategies that support student success. I'm passionate about using data—both qualitative and quantitative—to tell stories, drive institutional change, and promote equity-minded decision-making.</p>
+<p>I bring experience with tools like R, SPSS, Dedoose, GitHub, and HTML. As a bilingual (English/Spanish) researcher and educator, I strive to make data accessible, inclusive, and rooted in the lived experiences of the communities we serve.</p>
+<p>Let’s connect if you’re interested in research, data equity, student success, or reimagining higher education for justice.</p>
 </section>
 
 <section id="cv" class="block" aria-labelledby="cv-h">
@@ -295,30 +258,16 @@ Xochilth Lopez-Salgado, Ph.D., is a scholar of higher education whose research c
 <p>Peer-reviewed publications, book chapters, and funded research (see CV for full list).</p>
 </div>
 <div class="item">
-  <h3>Full CV</h3>
-  <p><a href="lopezsalgado_x_CV.pdf" target="_blank" class="link-ghost">View CV</a></p>
+<h3>Full CV</h3>
+<p><a href="lopezsalgado_x_CV.pdf" target="_blank" class="link-ghost">View CV</a></p>
 </div>
-
-
-</section>
-
-<section id="blog" class="block" aria-labelledby="blog-h">
-<h2 id="blog-h">Writing & Reflections</h2>
-<p>Essays and policy reflections on higher education, equity, and transfer pathways.</p>
-<div style="margin-top:12px">
-<article class="item" style="margin-bottom:10px">
-<h3>Featured Post (placeholder)</h3>
-<p class="muted">"Reimagining Transfer: Equity & Institutional Practice" — short excerpt or summary here.</p>
-</article>
-<p><a href="#" class="link-ghost">Visit blog</a></p>
 </div>
 </section>
 
 <section id="contact" class="block" aria-labelledby="contact-h">
 <h2 id="contact-h">Contact</h2>
 <p>If you'd like to collaborate or connect, reach out:</p>
-<p style="margin-top:10px"><a class="cta" href="mailto:you@example.com">Email: you@example.com</a></p>
-<p class="muted" style="margin-top:12px">Or replace with your preferred contact form or method.</p>
+<p style="margin-top:10px"><a class="cta" href="mailto:xvlopez@uci.edu">Email: xvlopez@uci.edu</a></p>
 </section>
 
 <footer>
@@ -332,6 +281,8 @@ document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
+
+
 
 
 
