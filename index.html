@@ -49,14 +49,13 @@ body{
 
 /* Mobile: stack columns */
 @media (max-width:900px){
-  .page{
-    grid-template-columns:1fr;
-  }
-  .card{
-    position:relative;
-    top:auto;
+  .page { grid-template-columns:1fr; }
+  .card {
+    position: static;
+    text-align: center;   /* centers all content in the card */
   }
 }
+
 
 /* Left column */
 .card {
@@ -70,20 +69,15 @@ body{
 }
 
 .avatar {
-  width:96px;
-  height:96px;
-  border-radius:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-family:var(--serif);
-  font-weight:700;
-  background:linear-gradient(180deg,#E8F5E9,#ffffff);
-  color:var(--accent-2);
-  font-size:34px;
-  margin-bottom:16px;
-  box-shadow:0 6px 14px rgba(46,125,50,0.15);
+  width: 150px;            /* bigger width */
+  height: 150px;           /* bigger height */
+  border-radius: 50%;      /* perfect circle */
+  margin: 0 auto 16px auto; /* centers horizontally and adds bottom spacing */
+  box-shadow: 0 6px 14px rgba(46,125,50,0.15);
+  object-fit: cover;       /* keeps the image nicely cropped */
+  display: block;
 }
+
 
 h1{
   margin:0 0 8px 0;
@@ -245,7 +239,7 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
 <div class="page" role="document" aria-label="Personal webpage for Xochilth Lopez-Salgado">
 
 <aside class="card" aria-labelledby="profile-name">
-<div class="avatar" aria-hidden="true">XL</div>
+<img src="photo.jpg" alt="Xochilth Lopez-Salgado" class="avatar">
 <h1 id="profile-name">Xochilth Lopez-Salgado, Ph.D.</h1>
 <p class="title">Higher Education Researcher — transfer pathways & equity</p>
 
