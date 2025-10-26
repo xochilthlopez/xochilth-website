@@ -11,12 +11,12 @@
 
 <style>
 :root{
-  --bg:#FFF8F0;           /* warm cream background */
-  --surface:#FFFFFF;      /* card background */
-  --muted:#6b5b59;        /* muted text */
-  --text:#2e1e19;         /* main text */
-  --accent:#2E7D32;       /* plant green */
-  --accent-2:#A8BFA2;     /* soft sage / muted beige */
+  --bg:#FFF8F0;           
+  --surface:#FFFFFF;      
+  --muted:#6b5b59;        
+  --text:#2e1e19;         
+  --accent:#2E7D32;       
+  --accent-2:#A8BFA2;     
   --radius:14px;
   --card-shadow:0 6px 20px rgba(46,125,50,0.12);
   --max-width:980px;
@@ -36,7 +36,6 @@ body{
   padding:36px 20px;
   display:flex;
   justify-content:center;
-  align-items:flex-start;
   box-sizing:border-box;
 }
 
@@ -46,10 +45,18 @@ body{
   display:grid;
   grid-template-columns: 320px 1fr;
   gap:var(--gap);
-  align-items:start;
 }
 
-@media (max-width:900px){.page{grid-template-columns:1fr;}.card{position:static;}}
+/* Mobile: stack columns */
+@media (max-width:900px){
+  .page{
+    grid-template-columns:1fr;
+  }
+  .card{
+    position:relative;
+    top:auto;
+  }
+}
 
 /* Left column */
 .card {
@@ -131,12 +138,14 @@ header{
   justify-content:space-between;
   align-items:flex-start;
   gap:12px;
+  flex-wrap:wrap; /* allow wrapping on mobile */
 }
 
 .actions {
   display:flex;
   gap:14px;
   align-items:center;
+  flex-wrap:wrap;
 }
 
 .link-ghost{
@@ -149,7 +158,6 @@ header{
   font-size:13px;
 }
 
-/* CTA button */
 .cta {
   display:inline-block;
   padding:10px 16px;
@@ -167,7 +175,6 @@ header{
   transform:translateY(-1px);
 }
 
-/* Section cards */
 section.block {
   background:var(--surface);
   border-radius:var(--radius);
@@ -196,7 +203,6 @@ section.block h2 {
 }
 section.block p {margin:0;color:var(--muted);font-size:14px}
 
-/* Grid items */
 .grid-2 {
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -214,7 +220,6 @@ section.block p {margin:0;color:var(--muted);font-size:14px}
 .item h3{margin:0 0 6px 0;font-size:14px;font-weight:600;color:var(--text)}
 .item p{margin:0;color:var(--muted);font-size:13px}
 
-/* Footer */
 footer{
   text-align:center;
   margin-top:28px;
@@ -222,10 +227,8 @@ footer{
   font-size:13px;
 }
 
-/* utilities */
 .muted { color:var(--muted); font-size:13px }
 
-/* Divider between sections */
 section.block:not(:last-of-type)::after {
   content:"";
   display:block;
@@ -234,7 +237,6 @@ section.block:not(:last-of-type)::after {
   margin-top:28px;
 }
 
-/* Focus accessibility */
 a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;border-radius:8px;}
 </style>
 </head>
@@ -242,10 +244,8 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
 <body>
 <div class="page" role="document" aria-label="Personal webpage for Xochilth Lopez-Salgado">
 
-<!-- Left column -->
 <aside class="card" aria-labelledby="profile-name">
 <div class="avatar" aria-hidden="true">XL</div>
-
 <h1 id="profile-name">Xochilth Lopez-Salgado, Ph.D.</h1>
 <p class="title">Higher Education Researcher — transfer pathways & equity</p>
 
@@ -254,9 +254,9 @@ Xochilth Lopez-Salgado, Ph.D., is a scholar of higher education whose research c
 </p>
 
 <div class="meta" role="navigation" aria-label="Quick links">
-<a class="button" href="https://example.com/your-resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
-<a class="button" href="https://example.com/your-cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
-<a class="button" href="https://blog.example.com" target="_blank" rel="noopener noreferrer">Blog</a>
+<a class="button" href="#">Resume</a>
+<a class="button" href="#">CV</a>
+<a class="button" href="#">Blog</a>
 </div>
 
 <div style="margin-top:14px">
@@ -265,7 +265,6 @@ Xochilth Lopez-Salgado, Ph.D., is a scholar of higher education whose research c
 </div>
 </aside>
 
-<!-- Right column -->
 <main>
 <header>
 <div>
@@ -273,7 +272,7 @@ Xochilth Lopez-Salgado, Ph.D., is a scholar of higher education whose research c
 <p style="margin-top:10px;font-size:13px;color:var(--muted)">Below are quick access sections for professional materials and writing.</p>
 </div>
 <div class="actions">
-<a class="cta" href="https://example.com/your-resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
+<a class="cta" href="#">View Resume</a>
 </div>
 </header>
 
@@ -287,7 +286,7 @@ Xochilth Lopez-Salgado, Ph.D., is a scholar of higher education whose research c
 </div>
 <div class="item">
 <h3>Download</h3>
-<p><a href="https://example.com/your-resume.pdf" target="_blank" rel="noopener noreferrer" class="link-ghost">Download resume</a></p>
+<p><a href="#" class="link-ghost">Download resume</a></p>
 </div>
 </div>
 </section>
@@ -302,7 +301,7 @@ Xochilth Lopez-Salgado, Ph.D., is a scholar of higher education whose research c
 </div>
 <div class="item">
 <h3>Full CV</h3>
-<p><a href="https://example.com/your-cv.pdf" target="_blank" rel="noopener noreferrer" class="link-ghost">View CV</a></p>
+<p><a href="#" class="link-ghost">View CV</a></p>
 </div>
 </div>
 </section>
@@ -315,7 +314,7 @@ Xochilth Lopez-Salgado, Ph.D., is a scholar of higher education whose research c
 <h3>Featured Post (placeholder)</h3>
 <p class="muted">"Reimagining Transfer: Equity & Institutional Practice" — short excerpt or summary here.</p>
 </article>
-<p><a href="https://blog.example.com" target="_blank" rel="noopener noreferrer" class="link-ghost">Visit blog</a></p>
+<p><a href="#" class="link-ghost">Visit blog</a></p>
 </div>
 </section>
 
