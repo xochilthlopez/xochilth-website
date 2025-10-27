@@ -76,7 +76,7 @@ nav a:hover{background:var(--accent); color:white;}
   display:grid;
   grid-template-columns: 320px 1fr;
   gap:var(--gap);
-  padding:100px 20px 40px; /* space for fixed nav */
+  padding:100px 20px 40px;
 }
 
 /* Card / Left Column */
@@ -86,18 +86,18 @@ nav a:hover{background:var(--accent); color:white;}
   box-shadow:var(--card-shadow);
   padding:24px;
   position:sticky;
-  top:100px; 
+  top:80px; /* reduced for mobile-friendly sticky */
   height:fit-content;
   transition: var(--transition);
 }
 .card:hover { transform: translateY(-2px); }
 
 .avatar {
-  width: 160px;
-  height: 160px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  margin: 0 auto 16px auto;
-  box-shadow: 0 6px 14px rgba(46,125,50,0.15);
+  margin: 0 auto 20px auto;
+  box-shadow: 0 8px 18px rgba(46,125,50,0.2);
   object-fit: cover;
   display: block;
   transition: var(--transition);
@@ -188,8 +188,6 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
 .card-mini.scroll-delay-1 { transition-delay: 0.1s; }
 .card-mini.scroll-delay-2 { transition-delay: 0.2s; }
 .card-mini.scroll-delay-3 { transition-delay: 0.3s; }
-.card-mini.scroll-delay-4 { transition-delay: 0.4s; }
-.card-mini.scroll-delay-5 { transition-delay: 0.5s; }
 
 .scroll-reveal {
   opacity: 0;
@@ -209,85 +207,47 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
   }
 }
 
-/* ---------- Responsive Layout Fix for Mobile ---------- */
+/* Mobile Responsive */
 @media (max-width:900px) {
-  .page {
-    grid-template-columns:1fr; 
-    padding:80px 16px 40px; 
-  }
-
-  .card {
-    position: relative; 
-    top: auto; 
-    text-align: center; 
-    margin-bottom:24px; 
-    width:100%;
-  }
-
-  main {
-    margin-top:0; 
-  }
-
-  .avatar {
-    width:140px;
-    height:140px;
-    margin-bottom:16px;
-  }
+  .page { grid-template-columns:1fr; padding:100px 16px 40px; }
+  .card { position: relative; top:auto; text-align:center; margin-bottom:24px; width:100%; padding:20px; }
+  main { margin-top:0; }
+  .avatar { width:160px; height:160px; margin-bottom:16px; }
 }
 
 /* Very small phones */
-@media (max-width:500px) {
-  .avatar {
-    width:120px;
-    height:120px;
-  }
+@media (max-width:500px) { .avatar { width:140px; height:140px; } }
 
-  nav ul {
-    flex-direction: column;
-    gap:10px;
-    padding:10px;
-  }
-}
-
-/* ---------- Mobile Menu Toggle ---------- */
+/* Mobile Menu Toggle */
 .mobile-menu {
-  display: none;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-size: 20px;
-  z-index: 1100;
-  cursor: pointer;
+  display:none;
+  position:fixed;
+  top:20px;
+  right:20px;
+  background:var(--accent);
+  color:white;
+  border:none;
+  padding:10px 14px;
+  border-radius:8px;
+  font-size:20px;
+  z-index:1100;
+  cursor:pointer;
 }
-
 @media (max-width:900px) {
-  .mobile-menu { display: block; }
-
-  nav ul {
-    position: fixed;
-    top: 60px;
-    right: 20px;
-    background: var(--surface);
-    flex-direction: column;
-    padding: 10px 20px;
-    border-radius: 10px;
-    box-shadow: var(--card-shadow);
-    max-height: 0;
-    overflow: hidden;
+  .mobile-menu { display:block; }
+  nav ul { 
+    position:fixed; 
+    top:60px; 
+    right:20px; 
+    background:var(--surface); 
+    flex-direction:column; 
+    padding:10px 20px; 
+    border-radius:10px; 
+    box-shadow:var(--card-shadow); 
+    display:none; /* hidden until toggle */
   }
-
-  nav ul.show {
-    max-height: 500px;
-  }
-
-  nav a {
-    padding: 10px 0;
-  }
+  nav ul.show { display:flex; }
+  nav a { padding:10px 0; }
 }
 </style>
 </head>
@@ -295,9 +255,7 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
 <body>
 
 <!-- Mobile Menu Toggle -->
-<button id="mobile-menu-toggle" class="mobile-menu" aria-label="Open menu" aria-expanded="false">
-  ☰
-</button>
+<button id="mobile-menu-toggle" class="mobile-menu" aria-label="Open menu" aria-expanded="false">☰</button>
 
 <!-- Fixed Navigation -->
 <nav>
@@ -310,14 +268,11 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
 
 <div class="page" role="document" aria-label="Personal webpage for Xochilth Lopez-Salgado">
 
-  <!-- Left column -->
   <aside class="card scroll-reveal" aria-labelledby="profile-name">
     <img src="photo.jpg" alt="Xochilth Lopez-Salgado" class="avatar">
 
     <div style="text-align:center; margin-top:12px;">
-      <button id="collab-toggle" class="cta" aria-expanded="false" style="font-size:14px; padding:8px 16px;">
-        Let’s Collaborate
-      </button>
+      <button id="collab-toggle" class="cta" aria-expanded="false" style="font-size:14px; padding:8px 16px;">Let’s Collaborate</button>
     </div>
 
     <div id="collab-info" style="display:none; margin-top:16px; text-align:center;">
@@ -329,7 +284,6 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
     </div>
   </aside>
 
-  <!-- Right column -->
   <main>
     <header class="scroll-reveal">
       <h1 class="scroll-reveal">Xochilth Lopez-Salgado, Ph.D.</h1>
@@ -379,25 +333,20 @@ document.getElementById('year').textContent = new Date().getFullYear();
 // Scroll reveal animations
 document.addEventListener("DOMContentLoaded", function() {
   const revealElements = document.querySelectorAll('.scroll-reveal');
-
   const revealOnScroll = () => {
     const windowHeight = window.innerHeight;
     revealElements.forEach(el => {
       const elementTop = el.getBoundingClientRect().top;
-      if (elementTop < windowHeight - 100) {
-        el.classList.add('active');
-      }
+      if (elementTop < windowHeight - 100) el.classList.add('active');
     });
   };
-
   window.addEventListener('scroll', revealOnScroll);
-  revealOnScroll(); // initial check
+  revealOnScroll();
 });
 
 // Toggle contact info
 const toggleBtn = document.getElementById('collab-toggle');
 const collabInfo = document.getElementById('collab-info');
-
 toggleBtn.addEventListener('click', () => {
   const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
   collabInfo.style.display = expanded ? 'none' : 'block';
@@ -408,7 +357,6 @@ toggleBtn.addEventListener('click', () => {
 // Mobile menu toggle
 const mobileToggle = document.getElementById('mobile-menu-toggle');
 const mobileNav = document.querySelector('nav ul');
-
 mobileToggle.addEventListener('click', () => {
   const isShown = mobileNav.classList.toggle('show');
   mobileToggle.setAttribute('aria-expanded', isShown);
@@ -417,6 +365,8 @@ mobileToggle.addEventListener('click', () => {
 
 </body>
 </html>
+
+
 
 
 
