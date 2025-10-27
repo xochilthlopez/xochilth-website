@@ -85,7 +85,7 @@ nav a:hover{background:var(--accent); color:white;}
 }
 
 .card {
-  background:var(--surface);
+  background:#E8F5E9; /* soft green background for left card */
   border-radius:var(--radius);
   box-shadow:var(--card-shadow);
   padding:24px;
@@ -111,17 +111,17 @@ nav a:hover{background:var(--accent); color:white;}
 h1{
   margin:0 0 8px 0;
   font-family:var(--serif);
-  font-size:24px;
+  font-size:36px; /* bigger for hero */
   color:var(--accent);
-  text-align:center;
+  text-align:left;
   font-weight:700;
 }
 .title {
   margin:0;
-  font-size:14px;
+  font-size:16px;
   color:var(--muted);
   font-weight:600;
-  text-align:center;
+  text-align:left;
 }
 
 .meta {
@@ -138,7 +138,7 @@ h1{
   border-radius:10px;
   border:1px solid rgba(46,125,50,0.15);
   color:var(--accent);
-  background:#E8F5E9;
+  background:white;
   font-weight:600;
   font-size:13px;
   transition: var(--transition);
@@ -150,14 +150,14 @@ h1{
 }
 
 main {min-height:200px;}
-header{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap;}
+header{margin-bottom:24px;}
 .actions{display:flex; gap:14px; align-items:center; flex-wrap:wrap;}
 .link-ghost{color:var(--accent-2); text-decoration:none; font-weight:600; border:1px solid transparent; padding:6px 10px; border-radius:8px; font-size:13px;}
-.cta{display:inline-block; padding:10px 16px; border-radius:10px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:white; text-decoration:none; font-weight:700; font-size:14px; box-shadow:0 10px 30px rgba(46,125,50,0.18); transition:var(--transition);}
+.cta{display:inline-block; padding:12px 20px; border-radius:10px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:white; text-decoration:none; font-weight:700; font-size:16px; box-shadow:0 10px 30px rgba(46,125,50,0.18); transition:var(--transition);}
 .cta:hover{opacity:0.95; transform:translateY(-1px);}
 
 section.block{
-  background:var(--surface);
+  background:#FFFFFF; /* white for project blocks */
   border-radius:var(--radius);
   padding:24px;
   box-shadow:var(--card-shadow);
@@ -165,22 +165,9 @@ section.block{
   transition: var(--transition);
 }
 
-/* Scroll-triggered animations */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s ease-out;
-}
-.scroll-reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Card hover animation */
-section.block:hover{transform:translateY(-1px); box-shadow:0 10px 30px rgba(46,125,50,0.12);}
-@keyframes fadeInUp{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);}}
-section.block h2{margin:0 0 12px 0; font-family:var(--serif); font-size:20px; color:var(--accent); border-bottom:2px solid rgba(46,125,50,0.15); padding-bottom:6px;}
+section.block h2{margin:0 0 12px 0; font-family:var(--serif); font-size:24px; color:var(--accent); border-bottom:2px solid rgba(46,125,50,0.15); padding-bottom:6px;}
 section.block p{margin:0 0 12px 0; color:var(--muted); font-size:14px;}
+
 footer{text-align:center; margin-top:28px; color:var(--muted); font-size:13px;}
 .muted{color:var(--muted); font-size:13px;}
 a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;border-radius:8px;}
@@ -192,15 +179,15 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
   padding:10px 0;
 }
 .card-mini{
-  background:var(--surface);
+  background:#E8F5E9; /* soft green for each project card */
   border-radius:var(--radius);
   box-shadow:var(--card-shadow);
   padding:16px;
   transition: var(--transition);
 }
 .card-mini:hover{transform:translateY(-3px); box-shadow:0 10px 20px rgba(46,125,50,0.15);}
-.card-mini h3{font-family:var(--serif); font-size:16px; color:var(--accent); margin:0 0 8px 0;}
-.card-mini p{font-size:13px; color:var(--muted);}
+.card-mini h3{font-family:var(--serif); font-size:18px; color:var(--accent); margin:0 0 8px 0;}
+.card-mini p{font-size:14px; color:var(--muted);}
 
 /* Optional stagger delays for cards */
 .card-mini.scroll-delay-1 { transition-delay: 0.1s; }
@@ -208,6 +195,17 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
 .card-mini.scroll-delay-3 { transition-delay: 0.3s; }
 .card-mini.scroll-delay-4 { transition-delay: 0.4s; }
 .card-mini.scroll-delay-5 { transition-delay: 0.5s; }
+
+/* Scroll-triggered animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+.scroll-reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 </style>
 </head>
 
@@ -226,27 +224,47 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
 
   <!-- Left column -->
   <aside class="card scroll-reveal" aria-labelledby="profile-name">
-    <img src="photo.jpg" alt="Xochilth Lopez-Salgado" class="avatar">
-    <h1 id="profile-name">Xochilth Lopez-Salgado, Ph.D.</h1>
-    <p class="title">Higher Education Researcher — transfer pathways & equity</p>
+  <img src="photo.jpg" alt="Xochilth Lopez-Salgado" class="avatar">
+  <h1 id="profile-name">Xochilth Lopez-Salgado, Ph.D.</h1>
 
-    <div class="meta" role="navigation" aria-label="Quick links">
+  <!-- Toggle Button -->
+  <div style="text-align:center; margin-top:12px;">
+    <button id="collab-toggle" class="cta" style="font-size:14px; padding:8px 16px;">
+      Let’s Collaborate
+    </button>
+  </div>
+
+  <!-- Hidden Contact Info -->
+  <div id="collab-info" style="display:none; margin-top:16px; text-align:center;">
+    <p class="muted" style="margin:6px 0;">Email: <a class="link-ghost" href="mailto:xvlopez@uci.edu">xvlopez@uci.edu</a></p>
+    <div class="meta" role="navigation" aria-label="Quick links" style="justify-content:center;">
       <a class="button" href="lopezsalgado_x_CV.pdf" target="_blank">CV</a>
       <a class="button" href="https://www.linkedin.com/in/xochilth-lopez-salgado-phd-16120bb8/" target="_blank">LinkedIn</a>
     </div>
+  </div>
+</aside>
 
-    <div style="margin-top:14px">
-      <p class="muted">Based in: Orange County, CA</p>
-      <p class="muted" style="margin-top:6px">Email: <a class="link-ghost" href="mailto:xvlopez@uci.edu">xvlopez@uci.edu</a></p>
-    </div>
-  </aside>
+<script>
+  // Toggle contact info
+  const toggleBtn = document.getElementById('collab-toggle');
+  const collabInfo = document.getElementById('collab-info');
+
+  toggleBtn.addEventListener('click', () => {
+    if(collabInfo.style.display === 'none'){
+      collabInfo.style.display = 'block';
+      toggleBtn.textContent = 'Hide Contact Info';
+    } else {
+      collabInfo.style.display = 'none';
+      toggleBtn.textContent = 'Let’s Collaborate';
+    }
+  });
+</script>
+
 
   <!-- Right column -->
   <main>
     <header class="scroll-reveal">
-      <div>
-        <p class="muted" style="margin:0">Welcome — I’m a researcher focused on improving transfer pathways and equity in higher education.</p>
-      </div>
+      <h1 class="scroll-reveal">Xochilth Lopez-Salgado, Ph.D.</h1>
       <div class="actions">
         <a class="cta" href="lopezsalgado_x_CV.pdf" target="_blank">View CV</a>
       </div>
@@ -311,12 +329,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
-
-
-
-
-
-
 
 
 
