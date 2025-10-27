@@ -80,12 +80,20 @@ nav a:hover{background:var(--accent); color:white;}
 }
 
 @media (max-width:900px){
-  .page { grid-template-columns:1fr; }
-  .card { position: static; text-align: center; }
+  .page { 
+    grid-template-columns:1fr; 
+    padding:80px 16px 40px; /* adjust for nav */
+  }
+  .card { 
+    position: relative; /* scrolls normally on mobile */
+    text-align: center; 
+    top: auto; 
+    margin-bottom: 20px;
+  }
 }
 
 .card {
-  background:#E8F5E9; /* soft green background for left card */
+  background:#E8F5E9; /* soft green background */
   border-radius:var(--radius);
   box-shadow:var(--card-shadow);
   padding:24px;
@@ -179,7 +187,7 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
   padding:10px 0;
 }
 .card-mini{
-  background:#E8F5E9; /* soft green for each project card */
+  background:#E8F5E9; /* soft green for project cards */
   border-radius:var(--radius);
   box-shadow:var(--card-shadow);
   padding:16px;
@@ -206,6 +214,14 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Responsive hero name */
+@media (max-width:600px){
+  main h1 {
+    font-size:28px;
+    text-align:center;
+  }
+}
 </style>
 </head>
 
@@ -223,43 +239,25 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
 <div class="page" role="document" aria-label="Personal webpage for Xochilth Lopez-Salgado">
 
   <!-- Left column -->
-<aside class="card scroll-reveal" aria-labelledby="profile-name">
-  <img src="photo.jpg" alt="Xochilth Lopez-Salgado" class="avatar">
+  <aside class="card scroll-reveal" aria-labelledby="profile-name">
+    <img src="photo.jpg" alt="Xochilth Lopez-Salgado" class="avatar">
 
-  <!-- Toggle Button -->
-  <div style="text-align:center; margin-top:12px;">
-    <button id="collab-toggle" class="cta" style="font-size:14px; padding:8px 16px;">
-      Let’s Collaborate
-    </button>
-  </div>
-
-  <!-- Hidden Contact Info -->
-  <div id="collab-info" style="display:none; margin-top:16px; text-align:center;">
-    <p class="muted" style="margin:6px 0;">Email: <a class="link-ghost" href="mailto:xvlopez@uci.edu">xvlopez@uci.edu</a></p>
-    <div class="meta" role="navigation" aria-label="Quick links" style="justify-content:center;">
-      <a class="button" href="lopezsalgado_x_CV.pdf" target="_blank">CV</a>
-      <a class="button" href="https://www.linkedin.com/in/xochilth-lopez-salgado-phd-16120bb8/" target="_blank">LinkedIn</a>
+    <!-- Toggle Button -->
+    <div style="text-align:center; margin-top:12px;">
+      <button id="collab-toggle" class="cta" style="font-size:14px; padding:8px 16px;">
+        Let’s Collaborate
+      </button>
     </div>
-  </div>
-</aside>
 
-
-<script>
-  // Toggle contact info
-  const toggleBtn = document.getElementById('collab-toggle');
-  const collabInfo = document.getElementById('collab-info');
-
-  toggleBtn.addEventListener('click', () => {
-    if(collabInfo.style.display === 'none'){
-      collabInfo.style.display = 'block';
-      toggleBtn.textContent = 'Hide Contact Info';
-    } else {
-      collabInfo.style.display = 'none';
-      toggleBtn.textContent = 'Let’s Collaborate';
-    }
-  });
-</script>
-
+    <!-- Hidden Contact Info -->
+    <div id="collab-info" style="display:none; margin-top:16px; text-align:center;">
+      <p class="muted" style="margin:6px 0;">Email: <a class="link-ghost" href="mailto:xvlopez@uci.edu">xvlopez@uci.edu</a></p>
+      <div class="meta" role="navigation" aria-label="Quick links" style="justify-content:center;">
+        <a class="button" href="lopezsalgado_x_CV.pdf" target="_blank">CV</a>
+        <a class="button" href="https://www.linkedin.com/in/xochilth-lopez-salgado-phd-16120bb8/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </aside>
 
   <!-- Right column -->
   <main>
@@ -325,10 +323,25 @@ document.addEventListener("DOMContentLoaded", function() {
   window.addEventListener('scroll', revealOnScroll);
   revealOnScroll(); // initial check
 });
+
+// Toggle contact info
+const toggleBtn = document.getElementById('collab-toggle');
+const collabInfo = document.getElementById('collab-info');
+
+toggleBtn.addEventListener('click', () => {
+  if(collabInfo.style.display === 'none'){
+    collabInfo.style.display = 'block';
+    toggleBtn.textContent = 'Hide Contact Info';
+  } else {
+    collabInfo.style.display = 'none';
+    toggleBtn.textContent = 'Let’s Collaborate';
+  }
+});
 </script>
 
 </body>
 </html>
+
 
 
 
