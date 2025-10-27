@@ -79,19 +79,7 @@ nav a:hover{background:var(--accent); color:white;}
   padding:100px 20px 40px; /* space for fixed nav */
 }
 
-@media (max-width:900px){
-  .page { 
-    grid-template-columns:1fr; 
-    padding:80px 16px 40px; /* adjust for nav */
-  }
-  .card { 
-    position: relative; /* scrolls normally on mobile */
-    text-align: center; 
-    top: auto; 
-    margin-bottom: 20px;
-  }
-}
-
+/* Card / Left Column */
 .card {
   background:#E8F5E9; /* soft green background */
   border-radius:var(--radius);
@@ -119,7 +107,7 @@ nav a:hover{background:var(--accent); color:white;}
 h1{
   margin:0 0 8px 0;
   font-family:var(--serif);
-  font-size:36px; /* bigger for hero */
+  font-size:36px;
   color:var(--accent);
   text-align:left;
   font-weight:700;
@@ -165,7 +153,7 @@ header{margin-bottom:24px;}
 .cta:hover{opacity:0.95; transform:translateY(-1px);}
 
 section.block{
-  background:#FFFFFF; /* white for project blocks */
+  background:#FFFFFF;
   border-radius:var(--radius);
   padding:24px;
   box-shadow:var(--card-shadow);
@@ -187,7 +175,7 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
   padding:10px 0;
 }
 .card-mini{
-  background:#E8F5E9; /* soft green for project cards */
+  background:#E8F5E9;
   border-radius:var(--radius);
   box-shadow:var(--card-shadow);
   padding:16px;
@@ -197,14 +185,12 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
 .card-mini h3{font-family:var(--serif); font-size:18px; color:var(--accent); margin:0 0 8px 0;}
 .card-mini p{font-size:14px; color:var(--muted);}
 
-/* Optional stagger delays for cards */
 .card-mini.scroll-delay-1 { transition-delay: 0.1s; }
 .card-mini.scroll-delay-2 { transition-delay: 0.2s; }
 .card-mini.scroll-delay-3 { transition-delay: 0.3s; }
 .card-mini.scroll-delay-4 { transition-delay: 0.4s; }
 .card-mini.scroll-delay-5 { transition-delay: 0.5s; }
 
-/* Scroll-triggered animations */
 .scroll-reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -215,11 +201,50 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
   transform: translateY(0);
 }
 
-/* Responsive hero name */
+/* Responsive Hero Name */
 @media (max-width:600px){
   main h1 {
     font-size:28px;
     text-align:center;
+  }
+}
+
+/* ---------- Responsive Layout Fix for Mobile ---------- */
+@media (max-width:900px) {
+  .page {
+    grid-template-columns:1fr; 
+    padding:80px 16px 40px; 
+  }
+
+  .card {
+    position: relative; 
+    top: auto; 
+    text-align: center; 
+    margin-bottom:24px; 
+    width:100%;
+  }
+
+  main {
+    margin-top:0; 
+  }
+
+  .avatar {
+    width:140px;
+    height:140px;
+    margin-bottom:16px;
+  }
+}
+
+@media (max-width:500px) {
+  .avatar {
+    width:120px;
+    height:120px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap:10px;
+    padding:10px;
   }
 }
 </style>
@@ -242,14 +267,12 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
   <aside class="card scroll-reveal" aria-labelledby="profile-name">
     <img src="photo.jpg" alt="Xochilth Lopez-Salgado" class="avatar">
 
-    <!-- Toggle Button -->
     <div style="text-align:center; margin-top:12px;">
-      <button id="collab-toggle" class="cta" style="font-size:14px; padding:8px 16px;">
+      <button id="collab-toggle" class="cta" aria-expanded="false" style="font-size:14px; padding:8px 16px;">
         Let’s Collaborate
       </button>
     </div>
 
-    <!-- Hidden Contact Info -->
     <div id="collab-info" style="display:none; margin-top:16px; text-align:center;">
       <p class="muted" style="margin:6px 0;">Email: <a class="link-ghost" href="mailto:xvlopez@uci.edu">xvlopez@uci.edu</a></p>
       <div class="meta" role="navigation" aria-label="Quick links" style="justify-content:center;">
@@ -329,18 +352,16 @@ const toggleBtn = document.getElementById('collab-toggle');
 const collabInfo = document.getElementById('collab-info');
 
 toggleBtn.addEventListener('click', () => {
-  if(collabInfo.style.display === 'none'){
-    collabInfo.style.display = 'block';
-    toggleBtn.textContent = 'Hide Contact Info';
-  } else {
-    collabInfo.style.display = 'none';
-    toggleBtn.textContent = 'Let’s Collaborate';
-  }
+  const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+  collabInfo.style.display = expanded ? 'none' : 'block';
+  toggleBtn.setAttribute('aria-expanded', !expanded);
+  toggleBtn.textContent = expanded ? 'Let’s Collaborate' : 'Hide Contact Info';
 });
 </script>
 
 </body>
 </html>
+
 
 
 
