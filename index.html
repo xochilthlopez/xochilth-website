@@ -86,7 +86,7 @@ nav a:hover{background:var(--accent); color:white;}
   box-shadow:var(--card-shadow);
   padding:24px;
   position:sticky;
-  top:80px; /* reduced for mobile-friendly sticky */
+  top:80px;
   height:fit-content;
   transition: var(--transition);
 }
@@ -97,7 +97,7 @@ nav a:hover{background:var(--accent); color:white;}
   height: 200px;
   border-radius: 50%;
   margin: 0 auto 20px auto;
-  box-shadow: 0 8px 18px rgba(46,125,50,0.2);
+  box-shadow: 0 8px 18px rgba(46,125,50,0.15);
   object-fit: cover;
   display: block;
   transition: var(--transition);
@@ -199,7 +199,6 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
   transform: translateY(0);
 }
 
-/* Responsive Hero Name */
 @media (max-width:600px){
   main h1 {
     font-size:28px;
@@ -207,7 +206,6 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
   }
 }
 
-/* Mobile Responsive */
 @media (max-width:900px) {
   .page { grid-template-columns:1fr; padding:100px 16px 40px; }
   .card { position: relative; top:auto; text-align:center; margin-bottom:24px; width:100%; padding:20px; }
@@ -215,10 +213,8 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
   .avatar { width:160px; height:160px; margin-bottom:16px; }
 }
 
-/* Very small phones */
 @media (max-width:500px) { .avatar { width:140px; height:140px; } }
 
-/* Mobile Menu Toggle */
 .mobile-menu {
   display:none;
   position:fixed;
@@ -244,7 +240,7 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
     padding:10px 20px; 
     border-radius:10px; 
     box-shadow:var(--card-shadow); 
-    display:none; /* hidden until toggle */
+    display:none; 
   }
   nav ul.show { display:flex; }
   nav a { padding:10px 0; }
@@ -276,9 +272,8 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
     </div>
 
     <div id="collab-info" style="display:none; margin-top:16px; text-align:center;">
-      <p class="muted" style="margin:6px 0;">Email: <a class="link-ghost" href="mailto:xvlopez@uci.edu">xvlopez@uci.edu</a></p>
-      <div class="meta" role="navigation" aria-label="Quick links" style="justify-content:center;">
-        <a class="button" href="lopezsalgado_x_CV.pdf" target="_blank">CV</a>
+      <div class="meta" role="navigation" aria-label="Quick links" style="justify-content:center; gap:10px;">
+        <a class="button" href="mailto:xvlopez@uci.edu">Email</a>
         <a class="button" href="https://www.linkedin.com/in/xochilth-lopez-salgado-phd-16120bb8/" target="_blank">LinkedIn</a>
       </div>
     </div>
@@ -365,12 +360,3 @@ mobileToggle.addEventListener('click', () => {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
