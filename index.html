@@ -81,12 +81,12 @@ nav a:hover{background:var(--accent); color:white;}
 
 /* Card / Left Column */
 .card {
-  background:#E8F5E9; /* soft green background */
+  background:#E8F5E9; 
   border-radius:var(--radius);
   box-shadow:var(--card-shadow);
   padding:24px;
   position:sticky;
-  top:100px; /* adjust for nav height */
+  top:100px; 
   height:fit-content;
   transition: var(--transition);
 }
@@ -235,6 +235,7 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
   }
 }
 
+/* Very small phones */
 @media (max-width:500px) {
   .avatar {
     width:120px;
@@ -247,10 +248,56 @@ a:focus,button:focus{outline:3px solid rgba(46,125,50,0.3);outline-offset:2px;bo
     padding:10px;
   }
 }
+
+/* ---------- Mobile Menu Toggle ---------- */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 20px;
+  z-index: 1100;
+  cursor: pointer;
+}
+
+@media (max-width:900px) {
+  .mobile-menu { display: block; }
+
+  nav ul {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    background: var(--surface);
+    flex-direction: column;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  nav ul.show {
+    max-height: 500px;
+  }
+
+  nav a {
+    padding: 10px 0;
+  }
+}
 </style>
 </head>
 
 <body>
+
+<!-- Mobile Menu Toggle -->
+<button id="mobile-menu-toggle" class="mobile-menu" aria-label="Open menu" aria-expanded="false">
+  ☰
+</button>
 
 <!-- Fixed Navigation -->
 <nav>
@@ -357,10 +404,20 @@ toggleBtn.addEventListener('click', () => {
   toggleBtn.setAttribute('aria-expanded', !expanded);
   toggleBtn.textContent = expanded ? 'Let’s Collaborate' : 'Hide Contact Info';
 });
+
+// Mobile menu toggle
+const mobileToggle = document.getElementById('mobile-menu-toggle');
+const mobileNav = document.querySelector('nav ul');
+
+mobileToggle.addEventListener('click', () => {
+  const isShown = mobileNav.classList.toggle('show');
+  mobileToggle.setAttribute('aria-expanded', isShown);
+});
 </script>
 
 </body>
 </html>
+
 
 
 
